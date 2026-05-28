@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Projeto Conexões Seguras</title>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <p class="label">Trabalho Acadêmico · Segurança de Redes</p>
+    <h1>Projeto Conexões Seguras</h1>
+    <p>Projeto acadêmico sobre segurança de redes corporativas, abordando sniffing, TLS, sessões web e VPNs.</p>
+  </header>
+
+  <!-- ── Quick nav ──────────────────────────────────────── -->
+  <nav class="module-index" aria-label="Módulos">
+    <a href="#modulo1">Módulo 1 · Sniffing</a>
+    <a href="#modulo2">Módulo 2 · TLS</a>
+    <a href="#modulo3">Módulo 3 · Sessão</a>
+    <a href="#modulo4">Módulo 4 · VPN</a>
+  </nav>
+
+  <!-- ── Módulo 1 · Sniffing ────────────────────────────── -->
+  <section class="module" id="modulo1">
+    <div class="module-header">
+      <span class="module-number">MÓDULO 01</span>
+      <h2>Sniffing</h2>
+    </div>
+
+    <!-- Descrição -->
+    <div class="module-section">
+      <p class="section-label">Descrição:</p>
+      <p class="section-text">
+       <strong>Objetivo:</strong> Demonstrar a captura e análise de pacotes em rede utilizando o Wireshark, evidenciando o funcionamento do modo promíscuo e o monitoramento de protocolos da camada de rede.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Ferramenta Utilizada:</strong> Wireshark
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Passo a Passo:</strong>
+        <ul>
+            <li class="section-list">Abrir o Wireshark.</li>
+            <li class="section-list">Selecionar a interface de rede ativa.</li>
+            <li class="section-list">Iniciar a captura de pacotes.</li>
+            <li class="section-list">Gerar tráfego utilizando o comando ping 8.8.8.8 no Prompt de Comando.</li>
+            <li class="section-list">Aplicar o filtro ICMP no Wireshark.</li>
+            <li class="section-list">Analisar os pacotes capturados e os detalhes internos dos protocolos.</li>
+        </ul>
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Resultado:</strong> Durante a captura realizada no Wireshark, foi aplicado o filtro ICMP para visualizar pacotes gerados pelo comando ping executado contra o endereço 8.8.8.8.
+        Foi possível identificar pacotes do tipo Echo Request e Echo Reply, demonstrando a comunicação entre o host local e o servidor remoto.
+        A captura comprova o funcionamento da análise de tráfego de rede utilizando modo promíscuo e monitoramento de protocolos da camada de rede.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Captura dos Pacotes ICMP:</strong>
+        <img src="./img/captura1-sniffing.png" alt="">
+        A imagem apresenta os pacotes ICMP trafegando entre o computador local e o servidor 8.8.8.8, evidenciando o envio e recebimento de respostas do protocolo de diagnóstico de rede.
+        <br><br>
+        <strong>Detalhes Internos do Pacote: </strong>
+        <img src="./img/captura-sniffing.png" alt="">
+        Nos detalhes internos do pacote é possível visualizar informações das camadas de rede, incluindo:
+        <ul>
+            <li class="section-list">Ethernet II</li>
+            <li class="section-list">Internet Protocol Version 4 (IPv4)</li>
+            <li class="section-list">Internet Control Message Protocol (ICMP)</li>
+        </ul>
+        Essas informações demonstram como o Wireshark permite analisar os protocolos encapsulados em cada pacote trafegado na rede.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Explicação Técnica do Resultado:</strong> O modo promíscuo é uma configuração da placa de rede (NIC — Network Interface Controller) que altera seu comportamento padrão de filtragem de pacotes.
+        <br>
+        Em funcionamento normal, a NIC aceita apenas quadros Ethernet destinados ao seu próprio endereço MAC, além de pacotes de broadcast e multicast autorizados. Pacotes destinados a outros dispositivos são descartados diretamente pela interface de rede.
+        <br>
+        Quando o modo promíscuo é ativado, a NIC passa a encaminhar todos os quadros recebidos para o sistema operacional, independentemente do endereço MAC de destino. Isso permite que ferramentas como o Wireshark capturem e analisem o tráfego da rede para fins de monitoramento, diagnóstico e análise de protocolos.
+        <br>
+        Durante a demonstração prática, o Wireshark capturou pacotes ICMP gerados pelo comando ping, permitindo observar o tráfego da camada de rede e a troca de mensagens entre o host local e o servidor remoto.
+
+      </p>
+    </div>
+
+    <!-- Link da implementação -->
+    <div class="module-section">
+      <p class="section-label">Implementação</p>
+      <!-- EDITAR: substitua o href pelo link real do repositório ou arquivo -->
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/modulo1-sniffing" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / modulo1-sniffing
+      </a>
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/evidencias/modulo1-sniffing" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / evidencias / modulo1-sniffing
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Módulo 2 · TLS ─────────────────────────────────── -->
+  <section class="module" id="modulo2">
+    <div class="module-header">
+      <span class="module-number">MÓDULO 02</span>
+      <h2>TLS</h2>
+    </div>
+
+    <!-- Descrição -->
+    <div class="module-section">
+      <p class="section-label">Descrição</p>
+      <p class="section-text">
+        <!-- EDITAR: substitua pelo texto descritivo do módulo de TLS -->
+        Estudo do protocolo Transport Layer Security (TLS), cobrindo o processo de handshake,
+        troca de certificados, suítes de criptografia e proteção de dados em trânsito em
+        ambientes corporativos.
+      </p>
+    </div>
+
+    <!-- Arquivos -->
+    <div class="module-section">
+      <p class="section-label">Arquivos</p>
+      <ul class="file-list">
+        <!-- EDITAR: substitua os hrefs e nomes pelos arquivos reais -->
+        <li>
+          <a href="#arquivo-tls-1" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            relatorio-tls.pdf
+          </a>
+        </li>
+        <li>
+          <a href="#arquivo-tls-2" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            config-certificado.conf
+          </a>
+        </li>
+        <li>
+          <a href="#arquivo-tls-3" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            captura-handshake.pcap
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Módulo 3 · Sessão ──────────────────────────────── -->
+  <section class="module" id="modulo3">
+    <div class="module-header">
+      <span class="module-number">MÓDULO 03</span>
+      <h2>Sessão</h2>
+    </div>
+
+    <!-- Link da aplicação -->
+    <div class="module-section">
+      <p class="section-label">Aplicação</p>
+      <p class="section-text" style="margin-bottom: 0.75rem;">
+        <!-- EDITAR: adicione aqui uma breve descrição se quiser -->
+        Demonstração prática de gerenciamento e vulnerabilidades em sessões web.
+      </p>
+      <!-- EDITAR: substitua o href pelo link real da aplicação -->
+      <a class="link-btn green" href="#link-aplicacao-sessao" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Acessar aplicação web
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Módulo 4 · VPN ─────────────────────────────────── -->
+  <section class="module" id="modulo4">
+    <div class="module-header">
+      <span class="module-number">MÓDULO 04</span>
+      <h2>VPN</h2>
+    </div>
+
+    <!-- Packet Tracer -->
+    <div class="module-section">
+      <p class="section-label">Packet Tracer</p>
+      <p class="section-text" style="margin-bottom: 0.75rem;">
+        <!-- EDITAR: adicione descrição da topologia VPN se quiser -->
+        Simulação de topologia VPN site-to-site em ambiente Cisco Packet Tracer.
+      </p>
+      <!-- EDITAR: substitua o href pelo link real do arquivo .pkt ou repositório -->
+      <a class="link-btn" href="#link-packet-tracer-vpn" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download · topologia.pkt
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    Projeto Conexões Seguras — trabalho acadêmico
+  </footer>
+
+</div>
+</body>
+</html>
