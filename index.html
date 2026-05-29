@@ -63,17 +63,17 @@
       <p class="section-text">
         <strong>Captura dos Pacotes ICMP:</strong>
         <img src="./img/captura1-sniffing.png" alt="">
-        A imagem apresenta os pacotes ICMP trafegando entre o computador local e o servidor 8.8.8.8, evidenciando o envio e recebimento de respostas do protocolo de diagnóstico de rede.
+        <p class="section-text">A imagem apresenta os pacotes ICMP trafegando entre o computador local e o servidor 8.8.8.8, evidenciando o envio e recebimento de respostas do protocolo de diagnóstico de rede.</p>
         <br><br>
         <strong>Detalhes Internos do Pacote: </strong>
         <img src="./img/captura-sniffing.png" alt="">
-        Nos detalhes internos do pacote é possível visualizar informações das camadas de rede, incluindo:
+        <p class="section-text">Nos detalhes internos do pacote é possível visualizar informações das camadas de rede, incluindo:</p>
         <ul>
             <li class="section-list">Ethernet II</li>
             <li class="section-list">Internet Protocol Version 4 (IPv4)</li>
             <li class="section-list">Internet Control Message Protocol (ICMP)</li>
         </ul>
-        Essas informações demonstram como o Wireshark permite analisar os protocolos encapsulados em cada pacote trafegado na rede.
+        <p class="section-text">Essas informações demonstram como o Wireshark permite analisar os protocolos encapsulados em cada pacote trafegado na rede.</p>
       </p>
       <br>
       <p class="section-text">
@@ -116,48 +116,82 @@
 
     <!-- Descrição -->
     <div class="module-section">
-      <p class="section-label">Descrição</p>
+      <p class="section-label">Descrição:</p>
       <p class="section-text">
-        <!-- EDITAR: substitua pelo texto descritivo do módulo de TLS -->
-        Estudo do protocolo Transport Layer Security (TLS), cobrindo o processo de handshake,
-        troca de certificados, suítes de criptografia e proteção de dados em trânsito em
-        ambientes corporativos.
+       <strong>Objetivo:</strong> Demonstrar o funcionamento do protocolo TLS, evidenciando o processo de handshake e o uso de criptografia híbrida em conexões HTTPS.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Ferramenta Utilizada:</strong> Wireshark e OpenSSL
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Passo a Passo:</strong>
+        <ul>
+            <li class="section-list">Abrir o Wireshark.</li>
+            <li class="section-list">Selecionar a interface de rede ativa.</li>
+            <li class="section-list">Iniciar a captura de pacotes.</li>
+            <li class="section-list">Acessar um site HTTPS no navegador.</li>
+            <li class="section-list">Aplicar o filtro tls no Wireshark.</li>
+            <li class="section-list">Identificar os pacotes Client Hello e Server Hello.</li>
+            <li class="section-list">Executar o comando openssl s_client -connect google.com:443.</li>
+            <li class="section-list">Analisar os detalhes do handshake TLS</li>
+        </ul>
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Resultado:</strong> Durante a captura realizada no Wireshark, foi possível identificar pacotes relacionados ao protocolo TLS, incluindo mensagens de Client Hello e Server Hello.
+        A análise demonstrou o estabelecimento de uma conexão segura HTTPS entre o cliente e o servidor remoto.
+        Também foi possível visualizar informações relacionadas à versão do TLS, algoritmos criptográficos utilizados e certificados digitais apresentados pelo servidor.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Captura do Handshake TLS:</strong>
+        <img src="./img/captura2-tls.png" alt="">
+        <p class="section-text">A imagem demonstra os pacotes responsáveis pelo início da comunicação segura entre cliente e servidor.</p>
+        <br>
+        <strong>Detalhes Internos do TLS:</strong>
+        <img src="./img/captura4-tls.png" alt="">
+        <p class="section-text">Nos detalhes do protocolo TLS é possível visualizar:</p>
+        <ul>
+            <li class="section-list">versão do TLS</li>
+            <li class="section-list">cipher suites</li>
+            <li class="section-list">certificados digitais</li>
+            <li class="section-list">parâmetros criptográficos da conexão</li>
+        </ul>
+        <br>
+        <strong>Saída do OpenSSL:</strong>
+        <img src="./img/captura3-tls.png" alt="">
+        <p class="section-text">O comando OpenSSL permitiu visualizar informações adicionais da conexão HTTPS, incluindo certificado digital, versão do protocolo TLS e algoritmo criptográfico utilizado.</p>
+        <br>
+      </p>
+      <p class="section-text">
+        <strong>Explicação Técnica do Resultado:</strong> O HTTPS utiliza criptografia híbrida para garantir segurança e desempenho durante a comunicação.
+        <br>
+        Durante o handshake TLS, algoritmos de criptografia assimétrica, como RSA ou ECC, são utilizados para autenticação e troca segura de chaves entre cliente e servidor.
+        <br>
+        Após o estabelecimento da conexão, uma chave de sessão simétrica é criada e utilizada para criptografar todo o tráfego subsequente utilizando algoritmos como AES.
+        <br>
+        A criptografia simétrica é utilizada na transferência dos dados por possuir desempenho significativamente superior à criptografia assimétrica, tornando a comunicação HTTPS segura e eficiente.
       </p>
     </div>
 
-    <!-- Arquivos -->
+    <!-- Link da implementação -->
     <div class="module-section">
-      <p class="section-label">Arquivos</p>
-      <ul class="file-list">
-        <!-- EDITAR: substitua os hrefs e nomes pelos arquivos reais -->
-        <li>
-          <a href="#arquivo-tls-1" target="_blank" rel="noopener">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-            </svg>
-            relatorio-tls.pdf
-          </a>
-        </li>
-        <li>
-          <a href="#arquivo-tls-2" target="_blank" rel="noopener">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-            </svg>
-            config-certificado.conf
-          </a>
-        </li>
-        <li>
-          <a href="#arquivo-tls-3" target="_blank" rel="noopener">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-            </svg>
-            captura-handshake.pcap
-          </a>
-        </li>
-      </ul>
+      <p class="section-label">Implementação</p>
+      <!-- EDITAR: substitua o href pelo link real do repositório ou arquivo -->
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/modulo2-tls" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / modulo2-tls
+      </a>
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/evidencias/modulo2-tls" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / evidencias / modulo2-tls
+      </a>
     </div>
   </section>
 
