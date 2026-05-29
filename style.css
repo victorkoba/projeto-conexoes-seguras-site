@@ -24,6 +24,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+p {
+  text-align: justify;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
