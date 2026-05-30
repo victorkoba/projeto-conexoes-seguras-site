@@ -199,24 +199,85 @@
   <section class="module" id="modulo3">
     <div class="module-header">
       <span class="module-number">MÓDULO 03</span>
-      <h2>Sessão</h2>
+      <h2>COOKIES</h2>
     </div>
 
-    <!-- Link da aplicação -->
+    <!-- Descrição -->
     <div class="module-section">
-      <p class="section-label">Aplicação</p>
-      <p class="section-text" style="margin-bottom: 0.75rem;">
-        <!-- EDITAR: adicione aqui uma breve descrição se quiser -->
-        Demonstração prática de gerenciamento e vulnerabilidades em sessões web.
+      <p class="section-label">Descrição:</p>
+      <p class="section-text">
+       <strong>Objetivo:</strong> Demonstrar o funcionamento de sessões autenticadas utilizando cookies SessionID em uma aplicação web simples, evidenciando a importância do HTTPS na proteção das informações de autenticação.
       </p>
-      <!-- EDITAR: substitua o href pelo link real da aplicação -->
-      <a class="link-btn green" href="#link-aplicacao-sessao" target="_blank" rel="noopener">
+      <br>
+      <p class="section-text">
+        <strong>Ferramenta Utilizada:</strong> Node.js, Express, express-session e o Navegador Web (Chrome/Edge)
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Passo a Passo:</strong>
+        <ul>
+            <li class="section-list">Criar uma aplicação web utilizando Node.js e Express.</li>
+            <li class="section-list">Configurar gerenciamento de sessão utilizando a biblioteca express-session.</li>
+            <li class="section-list">Desenvolver uma página de login (login.html).</li>
+            <li class="section-list">Desenvolver uma página restrita (index.html) acessível apenas após autenticação.</li>
+            <li class="section-list">Executar o servidor localmente.</li>
+            <li class="section-list">Realizar login utilizando usuário e senha pré-definidos.</li>
+            <li class="section-list">Inspecionar os cookies da aplicação utilizando as ferramentas de desenvolvedor do navegador.</li>
+            <li class="section-list">Identificar o cookie connect.sid responsável pela sessão autenticada.</li>
+        </ul>
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Resultado:</strong> Foi possível autenticar um usuário utilizando uma sessão baseada em cookies.
+        Após o login, a aplicação gerou automaticamente um SessionID armazenado no navegador através do cookie connect.sid.
+        A sessão permaneceu ativa durante a navegação entre as páginas da aplicação, demonstrando o funcionamento do gerenciamento de sessão na camada de aplicação.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Tela de Login:</strong>
+        <img src="./img/captura5-cookies.png" alt="">
+        <p class="section-text">A imagem demonstra a interface utilizada para autenticação do usuário na aplicação web.</p>
+        <br>
+        <strong>Sessão Autenticada:</strong>
+        <img src="./img/captura6-cookies.png" alt="">
+        <p class="section-text">Após o login bem-sucedido, o usuário obteve acesso à área restrita da aplicação.</p>
+        <br>
+        <strong>Cookie SessionID:</strong>
+        <img src="./img/captura7-cookies.png" alt="">
+        <img src="./img/captura8-cookies.png" alt="">
+        <p class="section-text">A imagem demonstra o SessionID armazenado no navegador através de cookies utilizados para manter a sessão autenticada entre cliente e servidor.</p>
+        <br>
+      </p>
+      <p class="section-text">
+        <strong>Explicação Técnica do Resultado:</strong> O SessionID é um identificador único utilizado para associar requisições HTTP a uma sessão autenticada no servidor.
+        <br>
+        Após o login, o servidor cria uma sessão para o usuário e envia um cookie contendo o identificador da sessão ao navegador. Esse cookie é automaticamente enviado em todas as requisições subsequentes, permitindo que o servidor reconheça o usuário autenticado.
+        <br>
+        Na aplicação desenvolvida, o cookie connect.sid foi utilizado para armazenar o identificador da sessão criada pela biblioteca express-session.
+        <br>
+        Do ponto de vista de segurança, o SessionID deve ser protegido adequadamente, pois sua interceptação pode permitir ataques de Session Hijacking, onde um invasor assume a sessão autenticada de outro usuário.
+        <br>
+        O HTTPS possui papel fundamental na proteção desses cookies durante a transmissão na rede. Utilizando criptografia TLS, o HTTPS impede que terceiros capturem os cookies trafegando entre cliente e servidor.
+        <br>
+        Caso a aplicação utilize apenas HTTP, os cookies podem ser transmitidos em texto claro pela rede, permitindo interceptação através de técnicas de sniffing de pacotes.
+      </p>
+    </div>
+
+    <!-- Link da implementação -->
+    <div class="module-section">
+      <p class="section-label">Implementação</p>
+      <!-- EDITAR: substitua o href pelo link real do repositório ou arquivo -->
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/modulo3-sessao" target="_blank" rel="noopener">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
         </svg>
-        Acessar aplicação web
+        Ver repositório / modulo3-sessao
+      </a>
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/evidencias/modulo3-sessao" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / evidencias / modulo3-sessao
       </a>
     </div>
   </section>
@@ -228,21 +289,84 @@
       <h2>VPN</h2>
     </div>
 
-    <!-- Packet Tracer -->
+    <!-- Descrição -->
     <div class="module-section">
-      <p class="section-label">Packet Tracer</p>
-      <p class="section-text" style="margin-bottom: 0.75rem;">
-        <!-- EDITAR: adicione descrição da topologia VPN se quiser -->
-        Simulação de topologia VPN site-to-site em ambiente Cisco Packet Tracer.
+      <p class="section-label">Descrição:</p>
+      <p class="section-text">
+       <strong>Objetivo:</strong> Demonstrar a implementação de uma VPN corporativa utilizando o Cisco Packet Tracer para simular comunicação segura entre redes distintas.
       </p>
-      <!-- EDITAR: substitua o href pelo link real do arquivo .pkt ou repositório -->
-      <a class="link-btn" href="#link-packet-tracer-vpn" target="_blank" rel="noopener">
+      <br>
+      <p class="section-text">
+        <strong>Ferramenta Utilizada:</strong> Cisco Packet Tracer
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Passo a Passo:</strong>
+        <ul>
+            <li class="section-list">Criar a topologia de rede no Cisco Packet Tracer.</li>
+            <li class="section-list">Configurar roteadores e endereçamento IP.</li>
+            <li class="section-list">Configurar os parâmetros da VPN entre as redes.</li>
+            <li class="section-list">Estabelecer comunicação entre os dispositivos das redes remotas.</li>
+            <li class="section-list">Realizar testes de conectividade utilizando ping.</li>
+            <li class="section-list">Validar o funcionamento da comunicação segura entre as redes.</li>
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Resultado:</strong> Foi possível estabelecer comunicação entre redes distintas através de uma VPN simulada no Cisco Packet Tracer.
+        Os dispositivos conseguiram trocar informações de forma segura através do túnel VPN configurado entre os roteadores.
+        Os testes de conectividade demonstraram sucesso na comunicação entre os hosts das diferentes redes corporativas.
+      </p>
+      <br>
+      <p class="section-text">
+        <strong>Topologia da Rede:</strong>
+        <img src="./img/captura11-vpn.png" alt="">
+        <p class="section-text">A imagem apresenta a estrutura da rede utilizada na simulação, incluindo roteadores, hosts e enlaces responsáveis pela comunicação entre as redes.</p>
+        <br>
+        <strong>Configuração da VPN:</strong>
+        <img src="./img/captura12-vpn.png" alt="">
+        <img src="./img/captura9-vpn.png" alt="">
+        <img src="./img/captura15-vpn.png" alt="">
+        <img src="./img/captura13-vpn.png" alt="">
+        <p class="section-text">A configuração demonstra os parâmetros utilizados para o estabelecimento do túnel VPN entre os dispositivos da rede.</p>
+        <br>
+        <strong>Testes de Conectividade:</strong>
+        <img src="./img/captura10-vpn.png" alt="">
+        <img src="./img/captura14-vpn.png" alt="">
+        <p class="section-text">Os testes realizados demonstraram comunicação bem-sucedida entre dispositivos localizados em redes distintas conectadas pela VPN.</p>
+        <br>
+      </p>
+      <p class="section-text">
+        <strong>Explicação Técnica do Resultado:</strong> Uma VPN (Virtual Private Network) é uma tecnologia utilizada para estabelecer comunicação segura entre redes através de um meio potencialmente inseguro.
+        <br>
+        No ambiente corporativo, VPNs permitem conectar filiais, usuários remotos e diferentes segmentos de rede utilizando criptografia para proteger os dados transmitidos.
+        <br>
+        Na simulação realizada, os roteadores foram configurados para criar um túnel VPN entre as redes, permitindo troca segura de informações entre os dispositivos conectados.
+        <br>
+        A utilização da VPN garante:
+        <br>
+        <ul>
+          <li class="section-list">confidencialidade dos dados</li>
+          <li class="section-list">integridade das informações transmitidas</li>
+          <li class="section-list">comunicação segura entre redes remotas</li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- Link da implementação -->
+    <div class="module-section">
+      <p class="section-label">Implementação</p>
+      <!-- EDITAR: substitua o href pelo link real do repositório ou arquivo -->
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/modulo4-vpn" target="_blank" rel="noopener">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
         </svg>
-        Download · topologia.pkt
+        Ver repositório / modulo4-vpn
+      </a>
+      <a class="link-btn" href="https://github.com/victorkoba/projeto-conexoes-seguras/tree/main/evidencias/modulo4-vpn" target="_blank" rel="noopener">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        Ver repositório / evidencias / modulo4-vpn
       </a>
     </div>
   </section>
